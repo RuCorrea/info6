@@ -53,7 +53,7 @@ class PostController extends Controller
             'content'=> 'min:5 | max:500'
         ]);*/
         //dd($validated);
-        dd($request->validated());
+        //dd($request->validated());
 
         Posts::create($request->validated());
         
@@ -77,9 +77,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Posts $post)
     {
         //
+        dd($post);
+        return view('dashboard.post.edit', [
+            'post' => $post
+        ]);
     }
 
     /**
