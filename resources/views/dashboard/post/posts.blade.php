@@ -24,11 +24,17 @@
             <a href="{{route ('post.edit',$post->id)}}" class="btn btn-secondary">Edit</a>
           </td>
           <td>
-            <a href="" class="btn btn-danger">Delete</a>
+            <form action="{{ route('post.destroy', $post->id) }}" method="post"></form>
+            @csrf
+            @method("DELETE")
+            <button type="submit" class="btn-danger">Delete</button>
           </td>
         </tr>    
       @endforeach
       
     </tbody>
   </table>
+
+  <div class="mt-3">{{ $posts->links() }}</div>
+
 @endsection
