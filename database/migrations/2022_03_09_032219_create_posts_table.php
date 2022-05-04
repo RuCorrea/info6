@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('categorie_id')->constrained('categories');
             $table->string('title',500)->nullable();
             $table->string('url_clean',500)->nullable();
             $table->text('content')->nullable();
